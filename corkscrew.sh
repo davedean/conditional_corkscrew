@@ -4,11 +4,11 @@
 
 # echo $@ > /tmp/allargs
 
-if [ "`networksetup -getcurrentlocation`" == "Work" ] ; then
+if [ "`networksetup -getcurrentlocation`" != "Automatic" ] ; then
   ~/.ssh/corkscrew $@
 else
   # bit of a hack :(
-        shift
-        shift
-        nc $@
+  	shift 
+	shift 
+	nc $@
 fi
